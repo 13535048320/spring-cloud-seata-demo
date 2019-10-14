@@ -1,0 +1,30 @@
+server:
+  port: 6791
+spring:
+  application:
+    name: client-one
+  cloud:
+    config:
+      name: client-one
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config
+    alibaba:
+      seata:
+        tx-service-group: my_group
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6789/eureka/
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    hostname: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+logging:
+  level:
+    io:
+      seata: debug

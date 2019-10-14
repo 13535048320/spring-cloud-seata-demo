@@ -1,0 +1,14 @@
+server:
+  port: 6789
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enableSelfPreservation: true
+    eviction-interval-timer-in-ms: 5000

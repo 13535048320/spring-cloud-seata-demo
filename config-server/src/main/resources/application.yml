@@ -1,0 +1,22 @@
+server:
+  port: 6790
+spring:
+  application:
+    name: config
+  profiles:
+    active: native
+  cloud:
+    config:
+      enabled: true
+    inetutils:
+      timeout-seconds: 10
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6789/eureka/
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    hostname: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30

@@ -1,0 +1,33 @@
+server:
+  port: 6792
+spring:
+  application:
+    name: client-two
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      name: client-two
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config
+    alibaba:
+      seata:
+        tx-service-group: my_group
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6789/eureka/
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+    hostname: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+logging:
+  level:
+    org.springframework.cloud.alibaba.seata.web: debug
+    io:
+      seata: debug
