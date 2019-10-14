@@ -179,7 +179,6 @@ CREATE TABLE `undo_log` (
 http://localhost:6791/testFeignInsert
 
 可以看到seata-server日志显示如下
-![picture3](https://github.com/13535048320/spring-cloud-seata-demo/blob/master/pictures/3.jpg)
-
 并且数据库内没插入新数据
 ```
+![picture3](https://github.com/13535048320/spring-cloud-seata-demo/blob/master/pictures/3.jpg)
