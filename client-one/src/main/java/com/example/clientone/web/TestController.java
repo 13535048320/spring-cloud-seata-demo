@@ -38,7 +38,7 @@ public class TestController {
     }
 
     @GetMapping("/testFeignInsert")
-    @GlobalTransactional
+    @GlobalTransactional(timeoutMills = 3000)
     public String testFeignInsert() {
         this.feignService.testFeignInsert();
         int zero = 1 / 0;
