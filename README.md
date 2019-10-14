@@ -93,7 +93,7 @@ store {
 ### 2.2 拷贝seata-server配置文件
 将Seata-Server的conf目录下的file.conf和registry.conf拷贝到模块下的resources下
 
-![picture1](https://github.com/13535048320/spring-cloud-seata-demo/pictures/1.png)
+![picture1](https://github.com/13535048320/spring-cloud-seata-demo/blob/master/pictures/1.jpg)
 
 
 ### 2.3 在springboot配置文件内添加
@@ -149,7 +149,7 @@ public class DataSourceConfiguration {
 
 ### 2.5 创建表
 在模块所连接的数据库创建表
-![picture2](https://github.com/13535048320/spring-cloud-seata-demo/pictures/2.png)
+![picture2](https://github.com/13535048320/spring-cloud-seata-demo/blob/master/pictures/2.jpg)
 ```
 CREATE TABLE `undo_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -179,7 +179,7 @@ CREATE TABLE `undo_log` (
 http://localhost:6791/testFeignInsert
 
 可以看到seata-server日志显示如下
-![picture3](https://github.com/13535048320/spring-cloud-seata-demo/pictures/3.png)
+![picture3](https://github.com/13535048320/spring-cloud-seata-demo/blob/master/pictures/3.jpg)
 
 并且数据库内没插入新数据
 ```
